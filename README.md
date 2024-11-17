@@ -1,4 +1,5 @@
 # 🌟 PÉROLA - O Assistente Inteligente do CAPES 🌟  
+![Legenda](./assets/img/perola.png)
 
 [👉 Experimente o PÉROLA ao vivo clicando aqui!](https://capes-e45a9.web.app/)  
 
