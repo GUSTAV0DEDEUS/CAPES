@@ -10,4 +10,4 @@ flutter_native_splash:
     image_dark: assets/img/white_logo.png
     icon_background_color_dark: "#000000"
 
-  web: true
+  web: false
