@@ -19,8 +19,9 @@ class AuthSignupState with ChangeNotifier {
     _isLoading = true;
     notifyListeners();
     try {
-      await _authRepository.register(email, password).then((value) =>
-          _authRepository.currentUser?.updateDisplayName(displayName));
+      await _authRepository.register(email, password, displayName).then(
+          (value) =>
+              _authRepository.currentUser?.updateDisplayName(displayName));
 
       _user = _authRepository.currentUser;
       _errorMessage = null;
@@ -30,11 +31,5 @@ class AuthSignupState with ChangeNotifier {
       _isLoading = false;
       notifyListeners();
     }
-  }
-
-  Future<void> signOut() async {
-    await _authRepository.signOut();
-    _user = null;
-    notifyListeners();
   }
 }

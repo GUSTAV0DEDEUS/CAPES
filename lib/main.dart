@@ -40,7 +40,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Capes For You',
       theme: AppTheme.lightTheme,
-      darkTheme: AppTheme.darkTheme,
       debugShowCheckedModeBanner: false,
       routes: {
         '/': (context) => const CYOPage(),

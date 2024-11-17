@@ -16,10 +16,10 @@ class ImageComponent extends StatelessWidget {
           height: height,
           width: double.infinity,
           fit: BoxFit.cover,
-          placeholder: (context, url) => Center(
+          placeholder: (context, url) => const Center(
             child: CircularProgressIndicator(),
           ),
-          errorWidget: (context, url, error) => Icon(Icons.error),
+          errorWidget: (context, url, error) => const Icon(Icons.error),
         ),
         Container(
           height: height,

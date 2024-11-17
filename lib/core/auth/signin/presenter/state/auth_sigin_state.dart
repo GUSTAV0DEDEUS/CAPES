@@ -28,10 +28,4 @@ class AuthSiginState with ChangeNotifier {
       notifyListeners();
     }
   }
-
-  Future<void> signOut() async {
-    await _authRepository.signOut();
-    _user = null;
-    notifyListeners();
-  }
 }

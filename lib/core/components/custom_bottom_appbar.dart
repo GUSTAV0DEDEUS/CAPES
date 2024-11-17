@@ -88,7 +88,7 @@ class CustomBottomAppBar extends StatelessWidget {
                 Navigator.of(context).pushNamed('/upload');
               },
               backgroundColor: AppColors.blue,
-              child: Icon(
+              child: const Icon(
                 Icons.camera_alt,
                 size: 24,
                 color: AppColors.white,

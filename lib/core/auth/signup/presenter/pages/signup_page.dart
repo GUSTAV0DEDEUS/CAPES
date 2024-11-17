@@ -39,7 +39,7 @@ class _SignUpPageState extends State<SignUpPage> {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Text('Parabéns, conta criada com sucesso!')),
         );
-        Navigator.pushReplacementNamed(context, '/home');
+        Navigator.pushReplacementNamed(context, '/');
       }
     }
   }
@@ -49,86 +49,91 @@ class _SignUpPageState extends State<SignUpPage> {
     final authState = context.watch<AuthSignupState>();
 
     return Scaffold(
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          children: [
-            Container(
-              margin: const EdgeInsets.symmetric(vertical: 50),
-              child: Form(
-                key: _formKey,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    const TextApp(
-                      label: 'Criar Conta',
-                      fontSize: AppFontSize.xxxLarge,
-                      fontWeight: FontWeight.w400,
-                      color: AppColors.black,
+      body: Center(
+        child: SizedBox(
+          width: 400,
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              children: [
+                Container(
+                  margin: const EdgeInsets.symmetric(vertical: 50),
+                  child: Form(
+                    key: _formKey,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        const TextApp(
+                          label: 'Criar Conta',
+                          fontSize: AppFontSize.xxxLarge,
+                          fontWeight: FontWeight.w400,
+                          color: AppColors.black,
+                        ),
+                        const SizedBox(height: 10),
+                        const TextApp(
+                          label:
+                              'Por favor, preencha os campos abaixo para criar sua conta.',
+                          color: AppColors.gray,
+                          overflow: TextOverflow.visible,
+                        ),
+                        const SizedBox(height: 15),
+                        TextFieldForm(
+                          controller: _emailController,
+                          labelText: 'Email',
+                          hintText: 'exemplo@gmail.com',
+                          validator: emailValidator,
+                        ),
+                        const SizedBox(height: 15),
+                        TextFieldForm(
+                          controller: _displayNameController,
+                          labelText: 'Nome do Usuário',
+                          hintText: 'user',
+                          validator: displayNameValidator,
+                        ),
+                        const SizedBox(height: 15),
+                        TextFieldForm(
+                          controller: _passwordController,
+                          labelText: 'Senha',
+                          hintText: 'Sua senha',
+                          obscureText: true,
+                          validator: passwordValidator,
+                        ),
+                        const SizedBox(height: 15),
+                        TextFieldForm(
+                          controller: _confirmPasswordController,
+                          labelText: 'Confirme sua senha',
+                          hintText: 'Sua senha',
+                          obscureText: true,
+                          validator: (value) {
+                            if (value != _passwordController.text) {
+                              return 'As senhas não coincidem';
+                            }
+                            return null;
+                          },
+                        ),
+                        const SizedBox(height: 15),
+                        ButtonSubmitForm(
+                          label: 'Registrar',
+                          function: () => _register(context),
+                          isLoading: authState.isLoading,
+                        ),
+                      ],
                     ),
-                    const SizedBox(height: 10),
-                    const TextApp(
-                      label:
-                          'Por favor, preencha os campos abaixo para criar sua conta.',
-                      color: AppColors.gray,
-                      overflow: TextOverflow.visible,
-                    ),
-                    const SizedBox(height: 15),
-                    TextFieldForm(
-                      controller: _emailController,
-                      labelText: 'Email',
-                      hintText: 'exemplo@gmail.com',
-                      validator: emailValidator,
-                    ),
-                    const SizedBox(height: 15),
-                    TextFieldForm(
-                      controller: _displayNameController,
-                      labelText: 'Nome do Usuário',
-                      hintText: 'user',
-                      validator: displayNameValidator,
-                    ),
-                    const SizedBox(height: 15),
-                    TextFieldForm(
-                      controller: _passwordController,
-                      labelText: 'Senha',
-                      hintText: 'Sua senha',
-                      obscureText: true,
-                      validator: passwordValidator,
-                    ),
-                    const SizedBox(height: 15),
-                    TextFieldForm(
-                      controller: _confirmPasswordController,
-                      labelText: 'Confirme sua senha',
-                      hintText: 'Sua senha',
-                      obscureText: true,
-                      validator: (value) {
-                        if (value != _passwordController.text) {
-                          return 'As senhas não coincidem';
-                        }
-                        return null;
-                      },
-                    ),
-                    const SizedBox(height: 15),
-                    ButtonSubmitForm(
-                      label: 'Registrar',
-                      function: () => _register(context),
-                      isLoading: authState.isLoading,
-                    ),
-                  ],
+                  ),
                 ),
-              ),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, '/signin');
+                  },
+                  child: const TextApp(
+                    label: 'Já tem uma conta? Faça login!',
+                    color: AppColors.black,
+                    fontSize: AppFontSize.large,
+                  ),
+                ),
+              ],
             ),
-            GestureDetector(
-              onTap: () {
-                Navigator.pushNamed(context, '/signin');
-              },
-              child: const TextApp(
-                label: 'Já tem uma conta? Faça login!',
-                color: AppColors.black,
-                fontSize: AppFontSize.large,
-              ),
-            ),
-          ],
+          ),
         ),
       ),
     );

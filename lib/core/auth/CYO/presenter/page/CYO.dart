@@ -8,66 +8,88 @@ class CYOPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.white,
       body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const SizedBox(height: 50),
-              const TextApp(
-                label: 'São Paulo Pontos',
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-                color: AppColors.black,
-              ),
-              const SizedBox(height: 20),
-              Image.asset('assets/img/logo.png', height: 150),
-              const SizedBox(height: 40),
+        child: SingleChildScrollView(
+          child: SizedBox(
+            width: 400,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 24.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const SizedBox(height: 50),
+                  const TextApp(
+                    label: 'Capes For You',
+                    fontSize: 32,
+                    fontWeight: FontWeight.bold,
+                    color: AppColors.black,
+                  ),
+                  const SizedBox(height: 30),
 
-              // Botões de Login Social
-              _buildSocialButton(
-                label: 'Entrar',
-                color: AppColors.gray,
-                onPressed: () {
-                  Navigator.pushNamed(context, '/signin');
-                },
+                  // Logo da Aplicação
+                  Image.asset(
+                    'assets/img/logo.png',
+                    height: 180,
+                  ),
+                  const SizedBox(height: 50),
+
+                  _buildActionButton(
+                    label: 'Entrar',
+                    color: AppColors.blue,
+                    textColor: AppColors.white,
+                    icon: Icons.login,
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/signin');
+                    },
+                  ),
+                  const SizedBox(height: 20),
+                  _buildActionButton(
+                    label: 'Cadastrar',
+                    color: AppColors.blue,
+                    textColor: AppColors.white,
+                    icon: Icons.person_add,
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/signup');
+                    },
+                  ),
+                  const SizedBox(height: 40),
+                ],
               ),
-              const SizedBox(height: 15),
-              _buildSocialButton(
-                label: 'Cadastrar',
-                color: AppColors.gray,
-                onPressed: () {
-                  Navigator.pushNamed(context, '/signup');
-                },
-              ),
-              const SizedBox(height: 30),
-            ],
+            ),
           ),
         ),
       ),
     );
   }
 
-  Widget _buildSocialButton({
+  Widget _buildActionButton({
     required String label,
     required Color color,
+    required Color textColor,
+    required IconData icon,
     required VoidCallback onPressed,
   }) {
-    return ElevatedButton(
+    return ElevatedButton.icon(
       style: ElevatedButton.styleFrom(
-        foregroundColor: color,
-        backgroundColor: Colors.white,
-        minimumSize: const Size(double.infinity, 50),
+        backgroundColor: color,
+        minimumSize: const Size(double.infinity, 55),
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(30),
-          side: BorderSide(color: color),
+          borderRadius: BorderRadius.circular(25),
         ),
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        elevation: 5,
       ),
       onPressed: onPressed,
-      child: Text(
+      icon: Icon(icon, color: textColor),
+      label: Text(
         label,
-        style: TextStyle(color: color),
+        style: TextStyle(
+          color: textColor,
+          fontSize: 18,
+          fontWeight: FontWeight.w600,
+        ),
       ),
     );
   }
