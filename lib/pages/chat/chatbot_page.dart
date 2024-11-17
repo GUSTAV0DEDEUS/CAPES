@@ -1,5 +1,4 @@
 import 'package:capes_for_you/core/auth/data/auth_repository.dart';
-import 'package:capes_for_you/core/models/chat_messages.dart';
 import 'package:capes_for_you/core/providers/chat_provider.dart';
 import 'package:capes_for_you/core/styles/app_colors.dart';
 import 'package:capes_for_you/pages/chat/components/chat_input.dart';

@@ -36,7 +36,7 @@ class _SignInPageState extends State<SignInPage> {
           ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(content: Text('Bem-vindo!')),
           );
-          Navigator.pushReplacementNamed(context, '/chatbot');
+          Navigator.pushReplacementNamed(context, '/home');
         }
       }
     }
