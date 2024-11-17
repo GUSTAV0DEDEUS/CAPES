@@ -43,7 +43,7 @@ void main() async {
         ),
         ChangeNotifierProvider(
           create: (context) => ChatProvider(
-            ChatService(dotenv.env['GENERATIVE_API_KEY']!),
+            ChatService(apiKey),
           ),
         ),
       ],
@@ -65,8 +65,7 @@ class MyApp extends StatelessWidget {
         '/': (context) => const CYOPage(),
         '/signin': (context) => const SignInPage(),
         '/signup': (context) => const SignUpPage(),
-        '/chatbot': (context) => const ChatbotPage(),
-        '/home': (context) => const HomeScreen(),
+        '/home': (context) => const ChatbotPage(),
       },
     );
   }

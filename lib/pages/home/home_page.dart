@@ -69,7 +69,10 @@ class HomeScreen extends StatelessWidget {
               onPressed: () {
                 Navigator.pushNamed(context, '/chatbot');
               },
-              child: Icon(Icons.add),
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Image.asset('assets/img/perola.png'),
+              ),
             ),
           ),
         ],
