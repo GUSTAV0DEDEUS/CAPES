@@ -45,6 +45,9 @@ dependencies:
   firebase_storage: ^12.3.3
   path: ^1.9.0
   flutter_dotenv: ^5.2.1
+  google_generative_ai: ^0.4.6
+  flutter_native_splash: ^2.4.2
+  flutter_launcher_icons: ^0.14.1
 
 
 
