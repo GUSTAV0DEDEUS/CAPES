@@ -9,6 +9,7 @@ import 'package:capes_for_you/core/services/chat_service.dart';
 import 'package:capes_for_you/core/styles/theme/theme.dart';
 import 'package:capes_for_you/firebase_options.dart';
 import 'package:capes_for_you/pages/chat/chatbot_page.dart';
+import 'package:capes_for_you/pages/home/home_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -65,6 +66,7 @@ class MyApp extends StatelessWidget {
         '/signin': (context) => const SignInPage(),
         '/signup': (context) => const SignUpPage(),
         '/chatbot': (context) => const ChatbotPage(),
+        '/home': (context) => HomeScreen(),
       },
     );
   }
