@@ -11,7 +11,7 @@ Este projeto vai além da criação do **PÉROLA**. Nosso objetivo é aprimorar 
 
 Se você está interessado em explorar mais sobre a nossa solução, incluindo as melhorias projetadas para a interface e funcionalidades, confira o design completo no Figma:
 
-[👉 Explore o design no Figma clicando aqui!](https://www.figma.com/design/fQtwR9fbTunRKDD8J6fJlV/CAPES?node-id=79-295&t=C0VdYxh831DBDkJP-1)  
+[👉 Explore o design no Figma clicando aqui!](https://www.figma.com/design/fQtwR9fbTunRKDD8J6fJlV/CAPES?node-id=0-1&t=8DVTEsNA6Lr0lq9E-1)  
 
 ---
 
